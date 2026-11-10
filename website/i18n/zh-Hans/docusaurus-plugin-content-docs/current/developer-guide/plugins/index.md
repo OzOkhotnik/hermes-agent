@@ -789,7 +789,7 @@ def register(ctx):
 
 ## 专用插件类型
 
-Hermes 在通用接口之外还有五种专用插件类型。每种都以目录形式存放在 `plugins/<category>/<name>/`（内置）或 `~/.hermes/plugins/<category>/<name>/`（用户）下。各类别的约定不同——选择你需要的类型，然后阅读其完整指南。
+Hermes 在通用接口之外还有五种专用插件类型。每种都以目录形式存放在 `hermes_agent/plugins/<category>/<name>/`（内置）或 `~/.hermes/plugins/<category>/<name>/`（用户）下。各类别的约定不同——选择你需要的类型，然后阅读其完整指南。
 
 ### 模型提供商插件——添加 LLM 后端
 

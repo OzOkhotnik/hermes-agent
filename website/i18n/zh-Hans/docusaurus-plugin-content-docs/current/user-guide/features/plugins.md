@@ -118,7 +118,7 @@ def register(ctx):
 
 | 来源 | 路径 | 使用场景 |
 |--------|------|----------|
-| 内置 | `<repo>/plugins/` | 随 Hermes 附带 — 参见 [Built-in Plugins](./built-in-plugins.md) |
+| 内置 | `<repo>/hermes_agent/plugins/` | 随 Hermes 附带 — 参见 [Built-in Plugins](./built-in-plugins.md) |
 | 用户 | `~/.hermes/plugins/` | 个人插件 |
 | 项目 | `.hermes/plugins/` | 项目专属插件（需要 `HERMES_ENABLE_PROJECT_PLUGINS=true`） |
 | pip | `hermes_agent.plugins` entry_points | 分发包 |

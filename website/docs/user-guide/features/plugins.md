@@ -146,7 +146,7 @@ See [Register slash commands](../../developer-guide/plugins/index.md#register-sl
 
 | Source | Path | Use case |
 |--------|------|----------|
-| Bundled | `<repo>/plugins/` | Ships with Hermes — see [Built-in Plugins](./built-in-plugins.md) |
+| Bundled | `<repo>/hermes_agent/plugins/` | Ships with Hermes — see [Built-in Plugins](./built-in-plugins.md) |
 | User | `~/.hermes/plugins/` | Personal plugins |
 | Project | `.hermes/plugins/` | Not loaded by the gateway that runs sessions; see [Project-local plugins](#project-local-plugins) |
 | pip | `hermes_agent.plugins` entry_points | Distributed packages |
