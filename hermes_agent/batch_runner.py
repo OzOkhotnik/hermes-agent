@@ -951,7 +951,7 @@ def main(
             print_distribution_info(dist_name)
 
         print("\n💡 Usage:")
-        print("  python batch_runner.py --dataset_file=data.jsonl --batch_size=10 \\")
+        print("  python hermes_agent/batch_runner.py --dataset_file=data.jsonl --batch_size=10 \\")
         print("                         --run_name=my_run --distribution=<name>")
         return
 
