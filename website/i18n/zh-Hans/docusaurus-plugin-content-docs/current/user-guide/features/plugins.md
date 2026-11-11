@@ -174,7 +174,7 @@ hermes plugins disable <name>     # 从允许列表移除并添加到禁用列�
 
 | 插件类型 | 激活方式 |
 |---|---|
-| **内置平台插件**（IRC、Teams 等，位于 `plugins/platforms/`） | 自动加载，使所有内置 gateway 频道可用。实际频道通过 `config.yaml` 中的 `gateway.platforms.<name>.enabled` 开启。 |
+| **内置平台插件**（IRC、Teams 等，位于 `plugins/platforms/`） | 自动加载，使所有内置 gateway 频道可用。实际频道通过 `config.yaml` 中的 `hermes_agent.gateway.platforms.<name>.enabled` 开启。 |
 | **内置后端**（`plugins/image_gen/` 等下的图像生成 provider） | 自动加载，使默认后端"开箱即用"。通过 `config.yaml` 中的 `<category>.provider` 选择（例如 `image_gen.provider: openai`）。 |
 | **Memory provider**（`plugins/memory/`） | 全部发现；同时只有一个激活，由 `config.yaml` 中的 `memory.provider` 选择。 |
 | **Context engine**（`plugins/context_engine/`） | 全部发现；同时只有一个激活，由 `config.yaml` 中的 `context.engine` 选择。 |

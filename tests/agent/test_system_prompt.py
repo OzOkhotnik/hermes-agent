@@ -563,7 +563,7 @@ class TestTelegramRichMessagesHint:
         assert "task lists" not in stable
 
     def test_rich_hint_with_rich_messages_enabled(self, monkeypatch):
-        """When rich_messages is True in gateway.platforms, the extension
+        """When rich_messages is True in hermes_agent.gateway.platforms, the extension
         is appended (the canonical/primary location)."""
         agent = _make_agent(platform="telegram")
         with patch("hermes_cli.config.load_config_readonly") as mock_cfg:
@@ -579,7 +579,7 @@ class TestTelegramRichMessagesHint:
 
     def test_rich_hint_from_top_level_platforms(self):
         """Top-level ``platforms.telegram.extra.rich_messages`` is merged
-        alongside gateway.platforms, so it works on its own."""
+        alongside hermes_agent.gateway.platforms, so it works on its own."""
         agent = _make_agent(platform="telegram")
         with patch("hermes_cli.config.load_config_readonly") as mock_cfg:
             mock_cfg.return_value = {
@@ -590,7 +590,7 @@ class TestTelegramRichMessagesHint:
         assert "task lists" in stable
 
     def test_top_level_overrides_gateway_rich_messages(self):
-        """Top-level ``platforms.telegram.extra`` wins over gateway.platforms
+        """Top-level ``platforms.telegram.extra`` wins over hermes_agent.gateway.platforms
         at the leaf, matching the adapter's merge precedence."""
         agent = _make_agent(platform="telegram")
         with patch("hermes_cli.config.load_config_readonly") as mock_cfg:

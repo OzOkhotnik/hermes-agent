@@ -3,11 +3,11 @@
 Bundled platform plugins register lazily (``PlatformRegistry.register_deferred``); importing all
 ~20 of them costs every cold gateway start about half a second (discord, telegram, google_chat
 SDKs, telegram's i18n catalog) although a fresh profile configures none. The config passes in
-``gateway.config_loader`` / ``gateway.config_env`` only need a platform's hooks
+``hermes_agent.gateway.config_loader`` / ``hermes_agent.gateway.config_env`` only need a platform's hooks
 (``apply_yaml_config_fn``, ``env_enablement_fn``, ``is_connected``) when the profile could be
 configuring that platform, so they materialize only names with *activation evidence*:
 
-* a config block for it (top-level ``<name>:``, ``platforms.<name>``, ``gateway.platforms.<name>``,
+* a config block for it (top-level ``<name>:``, ``platforms.<name>``, ``hermes_agent.gateway.platforms.<name>``,
   ``gateway.<name>``, or a legacy ``gateway.json`` row) — including a sibling block such as
   ``wecom_callback`` (registered by the ``wecom`` plugin);
 * an env var (process env, the profile ``.env``, or the active secret scope) under the platform's
@@ -34,7 +34,7 @@ logger = logging.getLogger(__name__)
 def _yaml_block_names(yaml_cfg: Any) -> set[str]:
     """Keys of every mapping a platform block may live in (``platform_section`` /
     ``merge_platform_sections`` read the same places): ``<name>:``, ``platforms.<name>``,
-    ``gateway.<name>``, ``gateway.platforms.<name>``."""
+    ``gateway.<name>``, ``hermes_agent.gateway.platforms.<name>``."""
     if not isinstance(yaml_cfg, dict):
         return set()
     gateway: dict = yaml_cfg["gateway"] if isinstance(yaml_cfg.get("gateway"), dict) else {}
@@ -110,7 +110,7 @@ def activation_predicate(
         home = get_hermes_home()
     if yaml_cfg is None and home is not None:
         try:
-            from gateway.config_loader import read_yaml_layers
+            from hermes_agent.gateway.config_loader import read_yaml_layers
             yaml_cfg = read_yaml_layers(home)
         except Exception:
             logger.debug("platform activation: config.yaml unreadable", exc_info=True)

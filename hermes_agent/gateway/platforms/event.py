@@ -1,7 +1,7 @@
 """Inbound message event types shared by every gateway platform adapter.
 
 A leaf module: adapters, helpers and the runner import it, so it must not import from
-gateway.platforms.*.
+hermes_agent.gateway.platforms.*.
 """
 
 import re
@@ -11,7 +11,7 @@ from datetime import datetime
 from enum import Enum
 from typing import Any, Dict, List, Optional
 
-from gateway.session import SessionSource
+from hermes_agent.gateway.session import SessionSource
 
 # Desktop attachment reference tags prepended by buildContextText before the
 # user's visible text (e.g. "@image:/tmp/foo.png\n\n/moa ask something").

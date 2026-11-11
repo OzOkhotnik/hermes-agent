@@ -204,7 +204,7 @@ class TelegramTopicRoutingMixin:
         """Fill thread_ids saved since boot into this adapter's ``dm_topics``: a rebuilt adapter's boot-time
         snapshot predates them (#132522). Read from where ``_persist_dm_topic_thread_id`` writes and merged,
         never swapped in: the gateway loader also accepts ``dm_topics`` in a top-level ``telegram:`` block
-        or under ``gateway.platforms``, which that path does not hold."""
+        or under ``hermes_agent.gateway.platforms``, which that path does not hold."""
         try:
             from hermes_cli.config import load_config_readonly
             saved = load_config_readonly().get("platforms", {}).get("telegram", {}).get("extra", {}).get("dm_topics") or []

@@ -116,7 +116,7 @@ platforms:
   other platform; put the opt-out in `config.yaml` (user or managed).
 
 The verdict comes from the same files and merge the gateway loader uses (top-level
-or `gateway.platforms` block, managed overlay) and is applied at activation time.
+or `hermes_agent.gateway.platforms` block, managed overlay) and is applied at activation time.
 Restart the gateway after changing it; an open relay socket is not torn down.
 `hermes gateway enroll` remains available while runtime relay is disabled.
 
